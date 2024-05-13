@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./assets/squares.jpg');
+  background-repeat: repeat;
+  background-size: 10%;
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+  font-family: Osd;
+}
+
+h2 {
+  text-align: center;
+  font-family: Osd;
+}
+
+.left-section, .middle-section, .right-section {
+  width: 500px; /* Set the width of each section */
+  height: 100%;
+  display: inline-block; /* Arrange the sections horizontally */
+  margin: 10px;
+}
+
+/* Additional styling for the sections */
+.left-section {
+  background-color: #f0f0f0; 
+}
+
+.middle-section {
+  height: 400px;
+  width: 400px;
+  background-color: #f0f0f0; 
+  align-items: center;
+}
+
+.right-section {
+  background-color: #d0d0d0; 
+}
+
+/* Select.css */
+
+.select { 
+  width: 100%; /* Adjust the width of the main square */
+  height: 100%; /* Adjust the height of the main square */
+  background-color: #f6f6f6; /* Slightly lighter color for the main square */
+}
+
+.main-square {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.instrument-square {
+  width: 200px; /* Adjust the width of the smaller squares */
+  height: 200px; /* Adjust the height of the smaller squares */
+  background-color: #fdebfc; /* Slightly lighter color for the smaller squares */
+  border: 10px solid #ffd7fd; /* Border color for the smaller squares */
+  padding: 5px; /* Adjust the margin between smaller squares *//* Use flexbox to center content */
+}
+
+.instrument-square.selected {
+  border-color: #d6ffe4; /* Border color for the selected smaller square */
+}
+
+.play-button {
+  position: absolute; /* Position absolute for centering */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the button */
+  width: 130px; /* Adjust the width of the play button */
+  height: 70px; /* Adjust the height of the play button */
+  background-color: #ff64ae; /* Color for the play button */
+  color: #fff; /* Text color for the play button */
+  border: none;
+  border-radius: 5px; /* Add some border radius */
+  cursor: pointer; /* Change cursor on hover */
+  font-family: Bit Bots;
+  font-size: 30px;
+
+}
+
+.play-button:hover {
+  background-color: #ff3886; /* Darker color on hover */
+}
+
+
+/* Fonts */
+
+@font-face {
+  font-family: "M12"; /* Replace "YourFontName" with the desired font name */
+  src: url("./assets/fonts/m12.TTF"); /* Replace "your-font-file.ttf" with the name of the downloaded font file */
+}
+
+@font-face {
+  font-family: "Osd"; /* Replace "YourFontName" with the desired font name */
+  src: url("./assets/fonts/osd.ttf"); /* Replace "your-font-file.ttf" with the name of the downloaded font file */
+}
+
+@font-face {
+  font-family: "Pixel"; /* Replace "YourFontName" with the desired font name */
+  src: url("./assets/fonts/pixel.ttf"); /* Replace "your-font-file.ttf" with the name of the downloaded font file */
+}
+
+@font-face {
+  font-family: "Bit Bots"; /* Replace "YourFontName" with the desired font name */
+  src: url("./assets/fonts/bit-bots.ttf"); /* Replace "your-font-file.ttf" with the name of the downloaded font file */
+}
