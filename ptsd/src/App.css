@@ -10,6 +10,8 @@ body {
 h1 {
   text-align: center;
   font-family: Osd;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 h2 {
@@ -59,7 +61,8 @@ h2 {
   height: 200px; /* Adjust the height of the smaller squares */
   background-color: #fdebfc; /* Slightly lighter color for the smaller squares */
   border: 10px solid #ffd7fd; /* Border color for the smaller squares */
-  padding: 5px; /* Adjust the margin between smaller squares *//* Use flexbox to center content */
+  padding: 5px; 
+  border-radius: 7px;
 }
 
 .instrument-square.selected {

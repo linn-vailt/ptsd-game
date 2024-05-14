@@ -8,17 +8,17 @@ function App() {
   return (
     <>
       <h1>PLAY THE SYMPHONY, DARLING</h1>
-    <div className='sections'>
-    <div className="left-section">
-        <Performer />
+      <div className="sections">
+        <div className="left-section">
+          <Performer />
+        </div>
+        <div className="middle-section">
+          <Select />
+        </div>
+        <div className="right-section">
+          <Crowd />
+        </div>
       </div>
-      <div className="middle-section">
-        <Select />
-      </div>
-      <div className="right-section">
-        <Crowd />
-      </div>
-    </div>
     </>
   );
 }
