@@ -7,7 +7,13 @@ import Select from "./components/Select";
 function App() {
   return (
     <>
-      <h1>PLAY THE SYMPHONY, DARLING</h1>
+      <div className="header">
+        <h6></h6>
+        <h1>
+          PLAY THE SYMPHONY,<span style={{ display: "block" }}>DARLING!</span>
+        </h1>
+        <h6 className="comment">You are not a bad person for playing this game.</h6>
+      </div>
       <div className="sections">
         <div className="left-section">
           <Performer />
@@ -18,6 +24,9 @@ function App() {
         <div className="right-section">
           <Crowd />
         </div>
+      </div>
+      <div className="footer">
+        <h6>Copyright © Linn Vailt. All rights reserved. You must be at least 168cm to play. Disclaimer: graphic violence.</h6>
       </div>
     </>
   );
