@@ -64,6 +64,7 @@ h6 {
   font-size: 20px;
   padding-top: 30%;
   box-shadow: 0 2px 16px 0 rgba(129, 88, 120, 0.395);
+  cursor: pointer;
 }
 
 .instrument-square.selected {
@@ -92,30 +93,40 @@ h6 {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.play-button:hover {
+.play-button:selected {
   background-color: #ff3886;
   border: solid 10px #ff3886;
   color: #fff;
 }
 
+.performer-img {
+  width: 10%;
+  height: auto; 
+}
+
+.listener {
+  display: grid;
+  grid-template-columns: 3;
+}
+
 /* Fonts */
 
 @font-face {
-  font-family: "M12"; /* Replace "YourFontName" with the desired font name */
-  src: url("./assets/fonts/m12.TTF"); /* Replace "your-font-file.ttf" with the name of the downloaded font file */
+  font-family: "M12"; 
+  src: url("./assets/fonts/m12.TTF"); 
 }
 
 @font-face {
-  font-family: "Osd"; /* Replace "YourFontName" with the desired font name */
-  src: url("./assets/fonts/osd.ttf"); /* Replace "your-font-file.ttf" with the name of the downloaded font file */
+  font-family: "Osd"; 
+  src: url("./assets/fonts/osd.ttf"); 
 }
 
 @font-face {
-  font-family: "Pixel"; /* Replace "YourFontName" with the desired font name */
-  src: url("./assets/fonts/pixel.ttf"); /* Replace "your-font-file.ttf" with the name of the downloaded font file */
+  font-family: "Pixel"; 
+  src: url("./assets/fonts/pixel.ttf"); 
 }
 
 @font-face {
-  font-family: "Bit Bots"; /* Replace "YourFontName" with the desired font name */
-  src: url("./assets/fonts/bit-bots.ttf"); /* Replace "your-font-file.ttf" with the name of the downloaded font file */
+  font-family: "Bit Bots";
+  src: url("./assets/fonts/bit-bots.ttf"); 
 }

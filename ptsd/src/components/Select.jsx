@@ -1,26 +1,54 @@
-// Select.jsx
+
 import { useState } from "react";
+import { Howl } from "howler";
 import Piano from "./instruments/Piano";
 import pianoImage from "../assets/piano.png";
+import pianoSound from "../assets/sounds/piano.wav";
 import Drums from "./instruments/Drums";
 import drumsImage from "../assets/drums.png";
+import drumsSound from "../assets/sounds/drums.wav";
 import Guitar from "./instruments/Guitar";
 import guitarImage from "../assets/guitar.png";
+import guitarSound from "../assets/sounds/guitar.wav";
 import Trombone from "./instruments/Trombone";
 import tromboneImage from "../assets/trombone.png";
-import "../App.css"; // Import CSS file for Select component styling
+import tromboneSound from "../assets/sounds/trombone.wav";
+import "../App.css"; 
 
-function Select() {
-  const [selectedInstrument, setSelectedInstrument] = useState("");
+function Select({ setCrowdReaction }) {
+  const [selectedInstruments, setSelectedInstruments] = useState([]);
+
+  const sounds = {
+    piano: new Howl({ src: [pianoSound] }),
+    drums: new Howl({ src: [drumsSound] }),
+    guitar: new Howl({ src: [guitarSound] }),
+    trombone: new Howl({ src: [tromboneSound] })
+  };
 
   const handleInstrumentSelect = (instrument) => {
-    setSelectedInstrument(instrument);
+    setSelectedInstruments((prev) =>
+      prev.includes(instrument) ? prev.filter((inst) => inst !== instrument) : [...prev, instrument]
+    );
   };
 
   const handlePlayButtonClick = () => {
-    // Play sound based on the selectedInstrument
-    // Implement sound playing logic here
-    console.log(selectedInstrument);
+    selectedInstruments.forEach((instrument) => {
+      sounds[instrument].play();
+    });
+    evaluateCrowdReaction();
+    setSelectedInstruments([]); // Reset selection after playing the sound
+  };
+
+  const evaluateCrowdReaction = () => {
+    const allInstruments = ["piano", "drums", "guitar", "trombone"];
+    if (
+      selectedInstruments.length === allInstruments.length &&
+      allInstruments.every((instr) => selectedInstruments.includes(instr))
+    ) {
+      setCrowdReaction("cheer");
+    } else {
+      setCrowdReaction("bleed");
+    }
   };
 
   return (
@@ -28,7 +56,7 @@ function Select() {
       {Piano}
       <button
         className={`instrument-square ${
-          selectedInstrument === "piano" ? "selected" : ""
+          selectedInstruments.includes("piano") ? "selected" : ""
         }`}
         onClick={() => handleInstrumentSelect("piano")}
         style={{
@@ -43,7 +71,7 @@ function Select() {
       {Drums}
       <button
         className={`instrument-square ${
-          selectedInstrument === "drums" ? "selected" : ""
+          selectedInstruments.includes("drums") ? "selected" : ""
         }`}
         onClick={() => handleInstrumentSelect("drums")}
         style={{
@@ -58,7 +86,7 @@ function Select() {
       {Guitar}
       <button
         className={`instrument-square ${
-          selectedInstrument === "guitar" ? "selected" : ""
+          selectedInstruments.includes("guitar") ? "selected" : ""
         }`}
         onClick={() => handleInstrumentSelect("guitar")}
         style={{
@@ -73,7 +101,7 @@ function Select() {
       {Trombone}
       <button
         className={`instrument-square ${
-          selectedInstrument === "trombone" ? "selected" : ""
+          selectedInstruments.includes("trombone") ? "selected" : ""
         }`}
         onClick={() => handleInstrumentSelect("trombone")}
         style={{

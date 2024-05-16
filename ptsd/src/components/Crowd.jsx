@@ -1,7 +1,16 @@
-export default function Crowd(){
+// components/Crowd.jsx
+
+import Listener from './Listener';
+
+function Crowd({ crowdReaction }) {
   return (
-    <div>
-        <h2>Crowd</h2>
+    <div className={`crowd ${crowdReaction}`}
+    >
+      {[...Array(10)].map((_, i) => (
+        <Listener key={i} />
+      ))}
     </div>
-  )  
+  );
 }
+
+export default Crowd;

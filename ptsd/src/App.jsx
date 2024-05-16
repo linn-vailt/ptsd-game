@@ -1,10 +1,14 @@
-// import { useState } from 'react'
+
+import { useState } from 'react';
 import "./App.css";
 import Performer from "./components/Performer";
 import Crowd from "./components/Crowd";
 import Select from "./components/Select";
 
 function App() {
+  const [selectedInstruments, setSelectedInstruments] = useState([]);
+  const [crowdReaction, setCrowdReaction] = useState('');
+
   return (
     <>
       <div className="header">
@@ -19,10 +23,14 @@ function App() {
           <Performer />
         </div>
         <div className="middle-section">
-          <Select />
+          <Select
+            selectedInstruments={selectedInstruments}
+            setSelectedInstruments={setSelectedInstruments}
+            setCrowdReaction={setCrowdReaction}
+          />
         </div>
         <div className="right-section">
-          <Crowd />
+          <Crowd crowdReaction={crowdReaction} />
         </div>
       </div>
       <div className="footer">
