@@ -1,11 +1,10 @@
-// components/Listener.jsx
-import listenerImg from "../assets/listener.jpg";
 
-function Listener() {
+
+function Listener({ crowdReaction }) {
   return (
-    <div className="listener">
-       <img src={listenerImg} alt="The listener" style={{ width: '10%', height: 'auto', paddingRight: '30px' }}/>
-       </div>
+    <div className={`listener ${crowdReaction === 'bleed' ? 'bleeding' : ''}`}>
+      <div className="listener-content"></div>
+    </div>
   );
 }
 

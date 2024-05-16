@@ -1,13 +1,9 @@
+import guitarImage from "../../assets/guitar.png";
 
-function Guitar({ selectedInstruments, setSelectedInstruments }) {
-  const handleSelect = () => {
-    if (!selectedInstruments.includes('Guitar')) {
-      setSelectedInstruments([...selectedInstruments, 'Guitar']);
-    }
-  };
-
+function Guitar() {
   return (
-    <div className="instrument" onClick={handleSelect}>
+    <div className="instrument">
+      <img src={guitarImage} alt="Guitar" className="performer-img" />
       Guitar
     </div>
   );

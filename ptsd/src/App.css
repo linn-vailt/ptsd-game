@@ -104,11 +104,31 @@ h6 {
   height: auto; 
 }
 
-.listener {
-  display: grid;
-  grid-template-columns: 3;
+.crowd {
+  display: flex;
+  flex-wrap: wrap;
 }
 
+.listener {
+  width: 10%;
+  margin: 5px;
+  transition: transform 0.5s, filter 0.5s;
+}
+
+.listener.bleeding {
+  transform: rotate(90deg);
+  filter: grayscale(100%);
+}
+
+.blood-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: -1;
+}
 /* Fonts */
 
 @font-face {

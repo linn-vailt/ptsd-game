@@ -1,13 +1,9 @@
+import drumsImage from "../../assets/drums.png";
 
-function Drums({ selectedInstruments, setSelectedInstruments }) {
-  const handleSelect = () => {
-    if (!selectedInstruments.includes('Drums')) {
-      setSelectedInstruments([...selectedInstruments, 'Drums']);
-    }
-  };
-
+function Drums() {
   return (
-    <div className="instrument" onClick={handleSelect}>
+    <div className="instrument">
+      <img src={drumsImage} alt="Drums" className="performer-img" />
       Drums
     </div>
   );

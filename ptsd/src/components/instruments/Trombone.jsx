@@ -1,14 +1,10 @@
+import tromboneImage from "../../assets/trombone.png";
 
-function Trombone({ selectedInstruments, setSelectedInstruments }) {
-  const handleSelect = () => {
-    if (!selectedInstruments.includes( 'Trombone')) {
-      setSelectedInstruments([...selectedInstruments,  'Trombone']);
-    }
-  };
-
+function Trombone() {
   return (
-    <div className="instrument" onClick={handleSelect}>
-     Trombone
+    <div className="instrument">
+      <img src={tromboneImage} alt="Trombone" className="performer-img" />
+      Trombone
     </div>
   );
 }

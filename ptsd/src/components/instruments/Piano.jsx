@@ -1,13 +1,9 @@
+import pianoImage from "../../assets/piano.png";
 
-function Piano({ selectedInstruments, setSelectedInstruments }) {
-  const handleSelect = () => {
-    if (!selectedInstruments.includes('Piano')) {
-      setSelectedInstruments([...selectedInstruments, 'Piano']);
-    }
-  };
-
+function Piano() {
   return (
-    <div className="instrument" onClick={handleSelect}>
+    <div className="instrument">
+      <img src={pianoImage} alt="Piano" className="performer-img" />
       Piano
     </div>
   );
