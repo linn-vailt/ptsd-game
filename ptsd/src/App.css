@@ -103,7 +103,9 @@ h6 {
   color: #fff;
 }
 .play-button.active {
-  background-color: #ab9ca2;
+  background-color: #bffcdec6;
+  border: solid 10px #f42075;
+
 }
 
 .performer-img {

@@ -10,12 +10,14 @@ import kanye from "./assets/sounds/kanye.mp3";
 import tydolla from "./assets/sounds/tydolla.mp3";
 import euro from "./assets/sounds/euro.mp3";
 import Box from "@mui/material/Box";
+import raegalImg from "./assets/raegal3.png"; 
 
 function App() {
   const [selectedInstruments, setSelectedInstruments] = useState([]);
   const [crowdReaction, setCrowdReaction] = useState("");
   const [currentSound, setCurrentSound] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [performerImage, setPerformerImage] = useState(null); // State to track the performer image
 
   const startTimes = {
     raegal: 49, 
@@ -32,6 +34,7 @@ function App() {
       setCurrentSound(null);
       setCrowdReaction("");
       setSelectedInstruments([]);
+      setPerformerImage(null); // Reset performer image
       return;
     }
 
@@ -41,10 +44,12 @@ function App() {
       soundSrc = raegal;
       soundStartTime = startTimes.raegal;
       setCrowdReaction("cheer");
+      setPerformerImage(raegalImg); // Set performer image to raegal3.jpg
     } else if (selectedInstruments.length === 3) {
       soundSrc = euro;
       soundStartTime = startTimes.euro;
       setCrowdReaction("bleed");
+      setPerformerImage(null); // Reset performer image
     } else if (selectedInstruments.length === 2) {
       if (selectedInstruments.includes("Guitar") && selectedInstruments.includes("Piano")) {
         soundSrc = tydolla;
@@ -54,10 +59,12 @@ function App() {
         soundStartTime = startTimes.kanye;
       }
       setCrowdReaction("bleed");
+      setPerformerImage(null); // Reset performer image
     } else if (selectedInstruments.length === 1) {
       soundSrc = swift;
       soundStartTime = startTimes.swift;
       setCrowdReaction("bleed");
+      setPerformerImage(null); // Reset performer image
     }
 
     if (soundSrc) {
@@ -85,10 +92,10 @@ function App() {
         </h6>
       </div>
       <Box className="sections" style={{alignProperty:'center'}}>
-        <Box className="left-section">
-          <Performer />
+        <Box className="left-section" style={{display: 'flex', justifyContent:'center', alignItems: 'center'}}>
+          <Performer image={performerImage} />
         </Box>
-        <Box className="middle-section">
+        <Box className="middle-section" style={{display: 'flex', justifyContent:'center', alignItems: 'center'}}>
           <Select
             selectedInstruments={selectedInstruments}
             setSelectedInstruments={setSelectedInstruments}
@@ -103,7 +110,7 @@ function App() {
       <div className="footer">
         <h6>
           Copyright © Linn Vailt. All rights reserved. You must be at least
-          168cm to play. Disclaimer: graphic violence.
+          210 cm to play. Disclaimer: graphic violence.
         </h6>
       </div>
     </Box>

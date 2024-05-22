@@ -15,7 +15,12 @@ const instruments = [
   { name: "Trombone", component: Trombone, sound: tromboneSound },
 ];
 
-function Select({ selectedInstruments, setSelectedInstruments, handlePTSDClick, isPlaying }) {
+function Select({
+  selectedInstruments,
+  setSelectedInstruments,
+  handlePTSDClick,
+  isPlaying,
+}) {
   const handleClick = (name, sound) => {
     if (!selectedInstruments.includes(name)) {
       setSelectedInstruments([...selectedInstruments, name]);

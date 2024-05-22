@@ -1,11 +1,14 @@
-// components/Performer.jsx
 import performerImg from "../assets/performer.png";
-import '../App.css'
+import '../App.css';
 
-function Performer() {
+function Performer({ image }) {
   return (
     <div>
-      <img src={performerImg} alt="The performer" style={{ width: '50%', height: 'auto', paddingLeft: '30px' }}/>
+      <img 
+        src={image || performerImg} 
+        alt="The performer" 
+        style={{ width: '40%', height: 'auto', paddingLeft: '120px'}}
+      />
     </div>
   );
 }
