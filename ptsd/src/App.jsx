@@ -11,12 +11,19 @@ import tydolla from "./assets/sounds/tydolla.mp3";
 import euro from "./assets/sounds/euro.mp3";
 import Box from "@mui/material/Box";
 
-
 function App() {
   const [selectedInstruments, setSelectedInstruments] = useState([]);
   const [crowdReaction, setCrowdReaction] = useState("");
   const [currentSound, setCurrentSound] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const startTimes = {
+    raegal: 49, 
+    swift: 4, 
+    kanye: 10,
+    tydolla: 24, 
+    euro: 1,
+  };
 
   const handlePTSDClick = () => {
     if (isPlaying && currentSound) {
@@ -29,30 +36,38 @@ function App() {
     }
 
     let soundSrc;
+    let soundStartTime = 0;
     if (selectedInstruments.length === 4) {
       soundSrc = raegal;
+      soundStartTime = startTimes.raegal;
       setCrowdReaction("cheer");
     } else if (selectedInstruments.length === 3) {
       soundSrc = euro;
+      soundStartTime = startTimes.euro;
       setCrowdReaction("bleed");
     } else if (selectedInstruments.length === 2) {
-      if (
-        selectedInstruments.includes("Guitar") &&
-        selectedInstruments.includes("Piano")
-      ) {
+      if (selectedInstruments.includes("Guitar") && selectedInstruments.includes("Piano")) {
         soundSrc = tydolla;
+        soundStartTime = startTimes.tydolla;
       } else {
         soundSrc = kanye;
+        soundStartTime = startTimes.kanye;
       }
       setCrowdReaction("bleed");
     } else if (selectedInstruments.length === 1) {
       soundSrc = swift;
+      soundStartTime = startTimes.swift;
       setCrowdReaction("bleed");
     }
 
     if (soundSrc) {
-      const sound = new Howl({ src: [soundSrc] });
-      sound.play();
+      const sound = new Howl({
+        src: [soundSrc],
+        onload: () => {
+          sound.seek(soundStartTime);
+          sound.play();
+        },
+      });
       setCurrentSound(sound);
       setIsPlaying(true);
     }
