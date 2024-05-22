@@ -1,5 +1,5 @@
 // components/Performer.jsx
-import performerImg from "../assets/performer.jpg";
+import performerImg from "../assets/performer.png";
 import '../App.css'
 
 function Performer() {

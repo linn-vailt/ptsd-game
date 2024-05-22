@@ -6,7 +6,7 @@ import bloodImage from '../assets/blood.png';
 function Crowd({ crowdReaction }) {
   return (
     <div className="crowd">
-      {[...Array(10)].map((_, i) => (
+      {[...Array(20)].map((_, i) => (
         <Listener key={i} crowdReaction={crowdReaction} />
       ))}
       {crowdReaction === 'bleed' && <img src={bloodImage} alt="Blood" className="blood-effect" />}

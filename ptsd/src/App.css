@@ -41,7 +41,7 @@ h6 {
 .sections {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 420px;
+  grid-template-rows: 440px;
 }
 
 .main-square {
@@ -53,6 +53,7 @@ h6 {
   border-radius: 7px;
   padding: 20px;
   position: relative;
+  /* background-color: aqua;*/
 }
 
 .instrument-square {
@@ -77,42 +78,55 @@ h6 {
 }
 
 .play-button {
+  outline: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 180px;
   height: 70px;
-  background-color: #ff64ae;
-  border: solid 10px #ff64ae;
+  background-color: #ff3886;
+  border: solid 10px #ff3886;
   color: white;
   border-radius: 50px;
   cursor: pointer;
-  font-family: Bit Bots;
+  font-family: Osd;
   font-size: 30px;
+  text-shadow: black 2px 2px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.play-button:selected {
-  background-color: #ff3886;
-  border: solid 10px #ff3886;
+.play-button:hover {
+  background-color:#f42075;
+  border: solid 10px #f42075;
+  outline: none;
   color: #fff;
+}
+.play-button.active {
+  background-color: #ab9ca2;
 }
 
 .performer-img {
   width: 10%;
-  height: auto; 
+  height: auto;
 }
 
 .crowd {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 80px 100px 90px 80px 100px;
+ grid-template-rows: 100px 90px 100px; 
 }
 
 .listener {
-  width: 10%;
   margin: 5px;
   transition: transform 0.5s, filter 0.5s;
+  position: relative;
+}
+
+.person {
+  width: 60%;
+  position: absolute;
+  transition: top 0.5s, left 0.5s;
 }
 
 .listener.bleeding {
@@ -132,21 +146,21 @@ h6 {
 /* Fonts */
 
 @font-face {
-  font-family: "M12"; 
-  src: url("./assets/fonts/m12.TTF"); 
+  font-family: "M12";
+  src: url("./assets/fonts/m12.TTF");
 }
 
 @font-face {
-  font-family: "Osd"; 
-  src: url("./assets/fonts/osd.ttf"); 
+  font-family: "Osd";
+  src: url("./assets/fonts/osd.ttf");
 }
 
 @font-face {
-  font-family: "Pixel"; 
-  src: url("./assets/fonts/pixel.ttf"); 
+  font-family: "Pixel";
+  src: url("./assets/fonts/pixel.ttf");
 }
 
 @font-face {
   font-family: "Bit Bots";
-  src: url("./assets/fonts/bit-bots.ttf"); 
+  src: url("./assets/fonts/bit-bots.ttf");
 }

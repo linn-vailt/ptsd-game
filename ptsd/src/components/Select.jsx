@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { Howl } from "howler";
 import Piano from "./instruments/Piano";
 import pianoSound from "../assets/sounds/piano.wav";
 import Drums from "./instruments/Drums";
@@ -16,15 +15,15 @@ const instruments = [
   { name: "Trombone", component: Trombone, sound: tromboneSound },
 ];
 
-function Select({
-  selectedInstruments,
-  setSelectedInstruments,
-  handlePTSDClick,
-}) {
+function Select({ selectedInstruments, setSelectedInstruments, handlePTSDClick, isPlaying }) {
   const handleClick = (name, sound) => {
     if (!selectedInstruments.includes(name)) {
       setSelectedInstruments([...selectedInstruments, name]);
       playInstrumentSound(sound);
+    } else {
+      setSelectedInstruments(
+        selectedInstruments.filter((instrument) => instrument !== name)
+      );
     }
   };
 
@@ -46,8 +45,11 @@ function Select({
           <instrument.component />
         </div>
       ))}
-      <button className="play-button" onClick={handlePTSDClick}>
-        PTSD
+      <button
+        className={`play-button ${isPlaying ? "active" : ""}`}
+        onClick={handlePTSDClick}
+      >
+        {isPlaying ? "Stop It" : "PTSD"}
       </button>
     </div>
   );

@@ -9,12 +9,25 @@ import swift from "./assets/sounds/swift.mp3";
 import kanye from "./assets/sounds/kanye.mp3";
 import tydolla from "./assets/sounds/tydolla.mp3";
 import euro from "./assets/sounds/euro.mp3";
+import Box from "@mui/material/Box";
+
 
 function App() {
   const [selectedInstruments, setSelectedInstruments] = useState([]);
   const [crowdReaction, setCrowdReaction] = useState("");
+  const [currentSound, setCurrentSound] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePTSDClick = () => {
+    if (isPlaying && currentSound) {
+      currentSound.stop();
+      setIsPlaying(false);
+      setCurrentSound(null);
+      setCrowdReaction("");
+      setSelectedInstruments([]);
+      return;
+    }
+
     let soundSrc;
     if (selectedInstruments.length === 4) {
       soundSrc = raegal;
@@ -38,17 +51,15 @@ function App() {
     }
 
     if (soundSrc) {
-      playSound(soundSrc);
+      const sound = new Howl({ src: [soundSrc] });
+      sound.play();
+      setCurrentSound(sound);
+      setIsPlaying(true);
     }
   };
 
-  const playSound = (src) => {
-    const sound = new Howl({ src: [src] });
-    sound.play();
-  };
-
   return (
-    <>
+    <Box>
       <div className="header">
         <h6></h6>
         <h1>
@@ -58,28 +69,29 @@ function App() {
           You are not a bad person for playing this game.
         </h6>
       </div>
-      <div className="sections">
-        <div className="left-section">
+      <Box className="sections" style={{alignProperty:'center'}}>
+        <Box className="left-section">
           <Performer />
-        </div>
-        <div className="middle-section">
+        </Box>
+        <Box className="middle-section">
           <Select
             selectedInstruments={selectedInstruments}
             setSelectedInstruments={setSelectedInstruments}
             handlePTSDClick={handlePTSDClick}
+            isPlaying={isPlaying}
           />
-        </div>
+        </Box>
         <div className="right-section">
           <Crowd crowdReaction={crowdReaction} />
         </div>
-      </div>
+      </Box>
       <div className="footer">
         <h6>
           Copyright © Linn Vailt. All rights reserved. You must be at least
           168cm to play. Disclaimer: graphic violence.
         </h6>
       </div>
-    </>
+    </Box>
   );
 }
 
