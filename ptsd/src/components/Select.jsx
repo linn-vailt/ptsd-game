@@ -54,7 +54,7 @@ function Select({
         className={`play-button ${isPlaying ? "active" : ""}`}
         onClick={handlePTSDClick}
       >
-        {isPlaying ? "Stop It" : "PTSD"}
+        {isPlaying ? "Stop!" : "PTSD"}
       </button>
     </div>
   );
