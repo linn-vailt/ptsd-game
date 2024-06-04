@@ -20,7 +20,7 @@ function App() {
   const [performerImage, setPerformerImage] = useState(null); // State to track the performer image
 
   const startTimes = {
-    raegal: 49, 
+    raegal: 49,
     swift: 4, 
     kanye: 10,
     tydolla: 24, 

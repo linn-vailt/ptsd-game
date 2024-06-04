@@ -9,7 +9,7 @@ function Crowd({ crowdReaction }) {
       {[...Array(20)].map((_, i) => (
         <Listener key={i} crowdReaction={crowdReaction} />
       ))}
-      {crowdReaction === 'bleed' && <img src={bloodImage} alt="Blood" className="blood-effect" />}
+      {crowdReaction === 'bleed' && <img src={bloodImage} alt="Blood" className="blood-effect"  />}
     </div>
   );
 }

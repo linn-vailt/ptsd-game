@@ -7,7 +7,7 @@ function Performer({ image }) {
       <img 
         src={image || performerImg} 
         alt="The performer" 
-        style={{ width: '40%', height: 'auto', paddingLeft: '140px'}}
+        style={{ width: '30%', height: 'auto', paddingLeft: '140px'}}
       />
     </div>
   );

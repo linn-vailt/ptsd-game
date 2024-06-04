@@ -68,6 +68,12 @@ h6 {
   cursor: pointer;
 }
 
+.left-section {
+  border-radius: 7px;
+  margin: 30px;
+  outline: solid 1.8px black;
+}
+
 .instrument-square.selected {
   margin: 6px;
   border: 6px solid;
@@ -111,6 +117,7 @@ h6 {
 .performer-img {
   width: 10%;
   height: auto;
+
 }
 
 .crowd {
@@ -136,14 +143,26 @@ h6 {
   filter: grayscale(100%);
 }
 
+
 .blood-effect {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
+  top: 30%;
+  left: 73%;
+  width: 15%;
+  height: 35%;
   z-index: -1;
+  animation: moveDown 5s linear infinite;
+}
+
+
+@keyframes moveDown {
+  0% {
+    top: 20;
+  }
+  100% {
+    top: calc(100% - 50%);
+
+  }
 }
 /* Fonts */
 
