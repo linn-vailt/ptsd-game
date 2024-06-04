@@ -10,7 +10,7 @@ import kanye from "./assets/sounds/kanye.mp3";
 import tydolla from "./assets/sounds/tydolla.mp3";
 import euro from "./assets/sounds/euro.mp3";
 import Box from "@mui/material/Box";
-import raegalImg from "./assets/raegal3.png"; 
+import raegalImg from "./assets/raegal3.png";
 
 function App() {
   const [selectedInstruments, setSelectedInstruments] = useState([]);
@@ -20,10 +20,10 @@ function App() {
   const [performerImage, setPerformerImage] = useState(null); // State to track the performer image
 
   const startTimes = {
-    raegal: 49,
-    swift: 4, 
+    raegal: 6,
+    swift: 4,
     kanye: 10,
-    tydolla: 24, 
+    tydolla: 24,
     euro: 1,
   };
 
@@ -51,7 +51,10 @@ function App() {
       setCrowdReaction("bleed");
       setPerformerImage(null); // Reset performer image
     } else if (selectedInstruments.length === 2) {
-      if (selectedInstruments.includes("Guitar") && selectedInstruments.includes("Piano")) {
+      if (
+        selectedInstruments.includes("Guitar") &&
+        selectedInstruments.includes("Piano")
+      ) {
         soundSrc = tydolla;
         soundStartTime = startTimes.tydolla;
       } else {
@@ -91,11 +94,25 @@ function App() {
           You are not a bad person for playing this game.
         </h6>
       </div>
-      <Box className="sections" style={{alignProperty:'center'}}>
-        <Box className="left-section" style={{display: 'flex', justifyContent:'center', alignItems: 'center'}}>
+      <Box className="sections" style={{ alignProperty: "center" }}>
+        <Box
+          className="left-section"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Performer image={performerImage} />
         </Box>
-        <Box className="middle-section" style={{display: 'flex', justifyContent:'center', alignItems: 'center'}}>
+        <Box
+          className="middle-section"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Select
             selectedInstruments={selectedInstruments}
             setSelectedInstruments={setSelectedInstruments}
@@ -109,8 +126,8 @@ function App() {
       </Box>
       <div className="footer">
         <h6>
-          Copyright © Linn Vailt. All rights reserved. You must be at least
-          210 cm to play. Disclaimer: graphic violence.
+          Copyright © Linn Vailt. All rights reserved. You must be at least 210
+          cm to play. Disclaimer: graphic violence.
         </h6>
       </div>
     </Box>
